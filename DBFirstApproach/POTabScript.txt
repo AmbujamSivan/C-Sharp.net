@@ -1,0 +1,57 @@
+USE [EForms_Dev]
+GO
+
+/****** Object:  Table [dbo].[PurchaseOrders]    Script Date: 11/21/2018 11:45:21 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[PurchaseOrders](
+	[PurchaseOrder_PK] [int] IDENTITY(1,1) NOT NULL,
+	[CountyName] [varchar](50) NULL,
+	[DateRequested] [datetime] NULL,
+	[DateNeeded] [datetime] NULL,
+	[Program] [varchar](10) NULL,
+	[BudgetNumber] [varchar](50) NULL,
+	[VendorName] [varchar](100) NULL,
+	[VendorPhone] [varchar](20) NULL,
+	[VendorAddress] [varchar](200) NULL,
+	[VendorCity] [varchar](100) NULL,
+	[VendorState] [varchar](10) NULL,
+	[VendorZip] [varchar](10) NULL,
+	[EmployeeName] [varchar](100) NULL,
+	[RequesterNetworkID] [varchar](50) NULL,
+	[SuperID] [varchar](50) NULL,
+	[DirectorID] [varchar](50) NULL,
+	[RequesterApprovalDt] [datetime] NULL,
+	[SupervisorApprovalDt] [datetime] NULL,
+	[ApprovedBy] [varchar](50) NULL,
+	[DirectorApprovalDt] [datetime] NULL,
+	[CurrentRequestStatus] [varchar](50) NULL,
+	[SuperExplain] [varchar](8000) NULL,
+	[GeneralComments] [varchar](8000) NULL,
+	[ObligationNumber] [varchar](50) NULL,
+	[WorkOrder_FK] [int] NULL,
+	[Cost_FK] [int] NULL,
+	[APProcessedDt] [datetime] NULL,
+	[APProcessedBy] [varchar](50) NULL,
+	[APComments] [varchar](8000) NULL,
+	[AlsoNotify] [varchar](50) NULL,
+	[Instructions] [varchar](8000) NULL,
+ CONSTRAINT [PK_PurchaseOrders] PRIMARY KEY CLUSTERED 
+(
+	[PurchaseOrder_PK] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

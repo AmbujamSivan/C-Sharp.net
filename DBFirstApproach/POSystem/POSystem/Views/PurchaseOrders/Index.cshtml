@@ -1,0 +1,245 @@
+﻿
+
+@model IEnumerable<POSystem.Models.PurchaseOrder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+    @using (Html.BeginForm())
+    {
+    <p>
+
+        CurrentPOStatus: @Html.DropDownList("ReqStatus", "All")
+        RequesterName: @Html.TextBox("SearchString")
+        <br /><br />
+        <input type="submit" value="Filter" />
+    </p>
+}
+    <div class="table-responsive">
+        <table id="myTable" class="table table-hover">
+            <tr>
+                <th>
+                    @Html.Label("Request ID#")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountyName)
+                </th>
+                <th>
+                    @Html.Label("Requested By")
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.DateNeeded)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Instructions)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CurrentRequestStatus)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Program)
+                    </th>
+                        <th>
+                        @Html.DisplayNameFor(model => model.DateRequested)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BudgetNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VendorPhone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VendorAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VendorCity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VendorState)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VendorZip)
+                    </th>*@
+
+                @*<th>
+                        @Html.DisplayNameFor(model => model.RequesterNetworkID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SuperID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DirectorID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequesterApprovalDt)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SupervisorApprovalDt)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApprovedBy)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DirectorApprovalDt)
+                    </th>*@
+
+                @*<th>
+                        @Html.DisplayNameFor(model => model.SuperExplain)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GeneralComments)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ObligationNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkOrder_FK)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cost_FK)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.APProcessedDt)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.APProcessedBy)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.APComments)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AlsoNotify)
+                    </th>*@
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchaseOrder_PK)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CountyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateNeeded)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VendorName)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Program)
+                        </td>
+                             <td>
+                            @Html.DisplayFor(modelItem => item.DateRequested)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BudgetNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VendorPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VendorAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VendorCity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VendorState)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VendorZip)
+                        </td>*@
+
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.RequesterNetworkID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SuperID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DirectorID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RequesterApprovalDt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SupervisorApprovalDt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ApprovedBy)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DirectorApprovalDt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SuperExplain)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GeneralComments)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ObligationNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkOrder_FK)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost_FK)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.APProcessedDt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.APProcessedBy)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.APComments)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AlsoNotify)
+                        </td>*@
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Instructions)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CurrentRequestStatus)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PurchaseOrder_PK }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PurchaseOrder_PK }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PurchaseOrder_PK })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <!--Scripting section starts-->
+    @section scripts {  
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#myTable').dataTable();
+            });</script>
+    }
+    <!--Scripting section Ends-->

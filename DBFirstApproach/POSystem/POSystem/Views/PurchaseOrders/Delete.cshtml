@@ -1,0 +1,264 @@
+﻿@model POSystem.Models.PurchaseOrder
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PurchaseOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CountyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRequested)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRequested)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateNeeded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateNeeded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Program)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Program)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorZip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorZip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequesterNetworkID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequesterNetworkID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuperID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuperID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequesterApprovalDt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequesterApprovalDt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupervisorApprovalDt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupervisorApprovalDt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApprovedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorApprovalDt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorApprovalDt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentRequestStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentRequestStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuperExplain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuperExplain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GeneralComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneralComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObligationNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObligationNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkOrder_FK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkOrder_FK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost_FK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost_FK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APProcessedDt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APProcessedDt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APProcessedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APProcessedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APComments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlsoNotify)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlsoNotify)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instructions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instructions)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

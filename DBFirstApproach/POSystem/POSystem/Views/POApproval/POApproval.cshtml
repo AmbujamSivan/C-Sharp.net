@@ -1,0 +1,21 @@
+﻿@model POSystem.Models.ApprovalViewModal
+
+@{
+    ViewBag.Title = "POApproval";
+}
+
+<h2>POApproval page for Approvers.</h2>
+
+<div class="jumbotron">
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(AVM =>AVM.PO.Program)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(AVM=>AVM.POItem.ItemQuantity )
+        </dd>
+    </dl>
+</div>
+

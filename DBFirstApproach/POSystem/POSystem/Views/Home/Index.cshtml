@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>OCDC EApps</h1>
+    <p class="lead">OCDC EForms Central</p>
+    <p><a class="btn btn-default" href="./about">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <p><a href="/PurchaseOrders/Index" class="btn btn-primary btn-lg">Purchase Order System &raquo;</a></p>
+    </div>
+
+    <div class="col-md-9">
+         <p class="lead">
+            Enter and Manage your Purchase Order request here.
+         </p>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <p><a href="https://10wwwsvr.ocdc.net/TravelRequests" class="btn btn-primary btn-lg">Travel Request System &raquo;</a></p>
+    </div>
+
+    <div class="col-md-9">
+        <p class="lead">
+            Enter and Manage your Purchase Order request here.
+        </p>
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-md-3">
+        <p><a href="https://10wwwsvr.ocdc.net/EForms/WorkOrders" class="btn btn-primary btn-lg">Work Order Request &raquo;</a></p>
+    </div>
+
+    <div class="col-md-9">
+        <p class="lead">
+            Enter and Manage your Purchase Order request here.
+        </p>
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-md-3">
+        <p><a href="https://10wwwsvr.ocdc.net/WarehouseInventory" class="btn btn-primary btn-lg">Warehouse Inventory &raquo;</a></p>
+    </div>
+
+    <div class="col-md-9">
+        <p class="lead">
+            Enter and Manage your Purchase Order request here.
+        </p>
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-md-3">
+        <p><a href="https://10wwwsvr.ocdc.net/EForms/AP_Transmittals" class="btn btn-primary btn-lg">AP Transmittals &raquo;</a></p>
+    </div>
+
+    <div class="col-md-9">
+        <p class="lead">
+            Enter and Manage your Purchase Order request here.
+        </p>
+    </div>
+
+</div>
+
+
+
+    <div class="row">
+        
+        <div>
+            @Html.ActionLink("List of PurchaseOrder", "Index", "PurchaseOrders")<br />
+            @Html.ActionLink("List of POItems", "Index", "PurchaseOrderItems")
+        </div>       
+    </div>

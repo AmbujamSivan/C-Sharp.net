@@ -1,0 +1,58 @@
+﻿@model POSystem.Models.PurchaseOrderItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PurchaseOrderItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseOrder_FK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseOrder_FK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemExtPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemExtPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PORequestItem_PK }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EForms_Dev_PODataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EForms_Dev.dbo.EForms_Admin_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EForms_Admin_Users">
+          <Key>
+            <PropertyRef Name="Admin_UID" />
+          </Key>
+          <Property Name="Admin_UID" Type="int" Nullable="false" />
+          <Property Name="FormName" Type="varchar" MaxLength="50" />
+          <Property Name="Network_User_ID" Type="varchar" MaxLength="50" />
+          <Property Name="County_FK" Type="int" />
+          <Property Name="ActiveFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="PurchaseOrderItems">
+          <Key>
+            <PropertyRef Name="PORequestItem_PK" />
+          </Key>
+          <Property Name="PORequestItem_PK" Type="int" Nullable="false" />
+          <Property Name="PurchaseOrder_FK" Type="int" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="100" />
+          <Property Name="ItemQuantity" Type="int" />
+          <Property Name="ItemPrice" Type="float" />
+          <Property Name="ItemExtPrice" Type="float" />
+        </EntityType>
+        <EntityType Name="PurchaseOrders">
+          <Key>
+            <PropertyRef Name="PurchaseOrder_PK" />
+          </Key>
+          <Property Name="PurchaseOrder_PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountyName" Type="varchar" MaxLength="50" />
+          <Property Name="DateRequested" Type="datetime" />
+          <Property Name="DateNeeded" Type="datetime" />
+          <Property Name="Program" Type="varchar" MaxLength="10" />
+          <Property Name="BudgetNumber" Type="varchar" MaxLength="50" />
+          <Property Name="VendorName" Type="varchar" MaxLength="100" />
+          <Property Name="VendorPhone" Type="varchar" MaxLength="20" />
+          <Property Name="VendorAddress" Type="varchar" MaxLength="200" />
+          <Property Name="VendorCity" Type="varchar" MaxLength="100" />
+          <Property Name="VendorState" Type="varchar" MaxLength="10" />
+          <Property Name="VendorZip" Type="varchar" MaxLength="10" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="100" />
+          <Property Name="RequesterNetworkID" Type="varchar" MaxLength="50" />
+          <Property Name="SuperID" Type="varchar" MaxLength="50" />
+          <Property Name="DirectorID" Type="varchar" MaxLength="50" />
+          <Property Name="RequesterApprovalDt" Type="datetime" />
+          <Property Name="SupervisorApprovalDt" Type="datetime" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="50" />
+          <Property Name="DirectorApprovalDt" Type="datetime" />
+          <Property Name="CurrentRequestStatus" Type="varchar" MaxLength="50" />
+          <Property Name="SuperExplain" Type="varchar" MaxLength="8000" />
+          <Property Name="GeneralComments" Type="varchar" MaxLength="8000" />
+          <Property Name="ObligationNumber" Type="varchar" MaxLength="50" />
+          <Property Name="WorkOrder_FK" Type="int" />
+          <Property Name="Cost_FK" Type="int" />
+          <Property Name="APProcessedDt" Type="datetime" />
+          <Property Name="APProcessedBy" Type="varchar" MaxLength="50" />
+          <Property Name="APComments" Type="varchar" MaxLength="8000" />
+          <Property Name="AlsoNotify" Type="varchar" MaxLength="50" />
+          <Property Name="Instructions" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityContainer Name="EForms_Dev_PODataModelStoreContainer">
+          <EntitySet Name="PurchaseOrderItems" EntityType="Self.PurchaseOrderItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseOrders" EntityType="Self.PurchaseOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EForms_Admin_Users" EntityType="Self.EForms_Admin_Users" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EForms_Admin_Users].[Admin_UID] AS [Admin_UID], 
+    [EForms_Admin_Users].[FormName] AS [FormName], 
+    [EForms_Admin_Users].[Network_User_ID] AS [Network_User_ID], 
+    [EForms_Admin_Users].[County_FK] AS [County_FK], 
+    [EForms_Admin_Users].[ActiveFlag] AS [ActiveFlag]
+    FROM [dbo].[EForms_Admin_Users] AS [EForms_Admin_Users]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EForms_Dev_PODataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PurchaseOrderItem">
+          <Key>
+            <PropertyRef Name="PORequestItem_PK" />
+          </Key>
+          <Property Name="PORequestItem_PK" Type="Int32" Nullable="false" />
+          <Property Name="PurchaseOrder_FK" Type="Int32" />
+          <Property Name="ItemDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ItemQuantity" Type="Int32" />
+          <Property Name="ItemPrice" Type="Double" />
+          <Property Name="ItemExtPrice" Type="Double" />
+        </EntityType>
+        <EntityType Name="PurchaseOrder">
+          <Key>
+            <PropertyRef Name="PurchaseOrder_PK" />
+          </Key>
+          <Property Name="PurchaseOrder_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateRequested" Type="DateTime" Precision="3" />
+          <Property Name="DateNeeded" Type="DateTime" Precision="3" />
+          <Property Name="Program" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BudgetNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VendorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VendorPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VendorAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VendorCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VendorState" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VendorZip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RequesterNetworkID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SuperID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DirectorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RequesterApprovalDt" Type="DateTime" Precision="3" />
+          <Property Name="SupervisorApprovalDt" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DirectorApprovalDt" Type="DateTime" Precision="3" />
+          <Property Name="CurrentRequestStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SuperExplain" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="GeneralComments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ObligationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorkOrder_FK" Type="Int32" />
+          <Property Name="Cost_FK" Type="Int32" />
+          <Property Name="APProcessedDt" Type="DateTime" Precision="3" />
+          <Property Name="APProcessedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APComments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="AlsoNotify" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Instructions" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EForms_Admin_Users">
+          <Key>
+            <PropertyRef Name="Admin_UID" />
+          </Key>
+          <Property Name="Admin_UID" Type="Int32" Nullable="false" />
+          <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Network_User_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="County_FK" Type="Int32" />
+          <Property Name="ActiveFlag" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="EForms_DevEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PurchaseOrderItems" EntityType="Self.PurchaseOrderItem" />
+          <EntitySet Name="PurchaseOrders" EntityType="Self.PurchaseOrder" />
+          <EntitySet Name="EForms_Admin_Users" EntityType="Self.EForms_Admin_Users" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EForms_Dev_PODataModelStoreContainer" CdmEntityContainer="EForms_DevEntities">
+          <EntitySetMapping Name="PurchaseOrderItems">
+            <EntityTypeMapping TypeName="EForms_Dev_PODataModel.PurchaseOrderItem">
+              <MappingFragment StoreEntitySet="PurchaseOrderItems">
+                <ScalarProperty Name="PORequestItem_PK" ColumnName="PORequestItem_PK" />
+                <ScalarProperty Name="PurchaseOrder_FK" ColumnName="PurchaseOrder_FK" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="ItemExtPrice" ColumnName="ItemExtPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseOrders">
+            <EntityTypeMapping TypeName="EForms_Dev_PODataModel.PurchaseOrder">
+              <MappingFragment StoreEntitySet="PurchaseOrders">
+                <ScalarProperty Name="PurchaseOrder_PK" ColumnName="PurchaseOrder_PK" />
+                <ScalarProperty Name="CountyName" ColumnName="CountyName" />
+                <ScalarProperty Name="DateRequested" ColumnName="DateRequested" />
+                <ScalarProperty Name="DateNeeded" ColumnName="DateNeeded" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="BudgetNumber" ColumnName="BudgetNumber" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorPhone" ColumnName="VendorPhone" />
+                <ScalarProperty Name="VendorAddress" ColumnName="VendorAddress" />
+                <ScalarProperty Name="VendorCity" ColumnName="VendorCity" />
+                <ScalarProperty Name="VendorState" ColumnName="VendorState" />
+                <ScalarProperty Name="VendorZip" ColumnName="VendorZip" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="RequesterNetworkID" ColumnName="RequesterNetworkID" />
+                <ScalarProperty Name="SuperID" ColumnName="SuperID" />
+                <ScalarProperty Name="DirectorID" ColumnName="DirectorID" />
+                <ScalarProperty Name="RequesterApprovalDt" ColumnName="RequesterApprovalDt" />
+                <ScalarProperty Name="SupervisorApprovalDt" ColumnName="SupervisorApprovalDt" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="DirectorApprovalDt" ColumnName="DirectorApprovalDt" />
+                <ScalarProperty Name="CurrentRequestStatus" ColumnName="CurrentRequestStatus" />
+                <ScalarProperty Name="SuperExplain" ColumnName="SuperExplain" />
+                <ScalarProperty Name="GeneralComments" ColumnName="GeneralComments" />
+                <ScalarProperty Name="ObligationNumber" ColumnName="ObligationNumber" />
+                <ScalarProperty Name="WorkOrder_FK" ColumnName="WorkOrder_FK" />
+                <ScalarProperty Name="Cost_FK" ColumnName="Cost_FK" />
+                <ScalarProperty Name="APProcessedDt" ColumnName="APProcessedDt" />
+                <ScalarProperty Name="APProcessedBy" ColumnName="APProcessedBy" />
+                <ScalarProperty Name="APComments" ColumnName="APComments" />
+                <ScalarProperty Name="AlsoNotify" ColumnName="AlsoNotify" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EForms_Admin_Users">
+            <EntityTypeMapping TypeName="EForms_Dev_PODataModel.EForms_Admin_Users">
+              <MappingFragment StoreEntitySet="EForms_Admin_Users">
+                <ScalarProperty Name="Admin_UID" ColumnName="Admin_UID" />
+                <ScalarProperty Name="FormName" ColumnName="FormName" />
+                <ScalarProperty Name="Network_User_ID" ColumnName="Network_User_ID" />
+                <ScalarProperty Name="County_FK" ColumnName="County_FK" />
+                <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
