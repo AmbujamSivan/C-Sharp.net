@@ -1,2 +1,2 @@
-# C3.net
+# C#.net
 MVC with EF example
